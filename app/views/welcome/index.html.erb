@@ -1,0 +1,19 @@
+<h1>Welcome to Bloggy World!</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blog Name</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= link_to blog.title, blog %>
+        <td><%= blog.user.email %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
