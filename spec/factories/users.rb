@@ -13,14 +13,8 @@
 #
 #  index_users_on_email  (email) UNIQUE
 #
-class User < ApplicationRecord
-  include ActiveModel::Validations
-
-  authenticates_with_sorcery!
-
-  validates :email, presence: true, email: true, uniqueness: true
-
-  has_many :blogs, dependent: :destroy
-  has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
+FactoryBot.define do
+  factory :user do
+    email { FFaker::Internet.email }
+  end
 end

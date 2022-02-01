@@ -17,20 +17,11 @@
 #  index_posts_on_blog_id  (blog_id)
 #  index_posts_on_user_id  (user_id)
 #
-class Post < ApplicationRecord
-
-  # Validations
-  validates :title, presence: true, length: { in: 4..255 }
-  validates :content, presence: true
-  validates :blog_id, presence: true
-  validates :user_id, presence: true
-
-  # Relationships
-  belongs_to :user
-  belongs_to :blog
-
-  has_many :comments, dependent: :destroy
-
-  # Scopes
-  scope :by_blog, lambda { |id, blog_id| includes(:blog, comments: :user).joins(:blog).find_by(id: id, blogs: {id: blog_id}) }
+FactoryBot.define do
+  factory :post do
+    title { FFaker::Lorem.sentence }
+    content { FFaker::Lorem.paragraph }
+    association :blog
+    association :user
+  end
 end
