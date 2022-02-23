@@ -1,0 +1,11 @@
+%h2= @blog_title
+%h4
+  By: #{@blog_user_email}
+%table
+  %thead
+    %tr
+      %th Post Title
+      %th Comments
+  %tbody
+    = render @blog.posts
+      

@@ -1,0 +1,9 @@
+%h2= @post.blog_title
+%h4
+  By: #{@post.blog_user_email}
+%h2= @post.title
+%p= @post.content
+%hr/
+%h4 Comments
+= render @post.comments
+  

@@ -16,18 +16,11 @@
 #  index_comments_on_post_id  (post_id)
 #  index_comments_on_user_id  (user_id)
 #
-class Comment < ApplicationRecord
-
-  # Validations
-  validates :content, presence: true
-  validates :blog_id, presence: true
-  validates :post_id, presence: true
-  validates :user_id, presence: true
-
-  # Relationships
-  belongs_to :blog
-  belongs_to :post
-  belongs_to :user
-
-  counter_culture :post, column_name: :comments_count
+FactoryBot.define do
+  factory :comment do
+    content { FFaker::Lorem.paragraph }
+    association :post
+    association :blog
+    association :user
+  end
 end

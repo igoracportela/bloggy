@@ -1,9 +1,8 @@
 class BlogsController < ApplicationController
 
   def show
-    ## show our blog with the post
-    @blog  = Blog.find(params[:id])
-    @posts = Blog.find(params[:id]).posts
+    blog  = Blog.by_id(params[:id])
+    @blog = Blogs::BlogPresenter.new(blog)
   end
 
 end

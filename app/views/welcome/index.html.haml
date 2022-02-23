@@ -1,0 +1,13 @@
+%h1 Welcome to Bloggy World!
+%table
+  %thead
+    %tr
+      %th Blog Name
+      %th Author
+  %tbody
+    - @blogs.map do |blog| 
+      %tr
+        %td
+          = link_to blog.title, blog
+        %td
+          = blog.user_email
