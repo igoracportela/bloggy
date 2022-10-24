@@ -24,7 +24,11 @@ RUN gem install bundler --version "$BUNDLE_VERSION" \
   && rm -rf $GEM_HOME/cache/*
 
 ENV DIR /var/www/bloggy
+ENV PORT=5000
 
 RUN mkdir ${DIR}
 WORKDIR ${DIR}
 COPY . ${DIR}
+
+EXPOSE $PORT
+CMD ["rails", "server", "-b", "0.0.0.0"]
