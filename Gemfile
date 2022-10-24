@@ -6,7 +6,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'counter_culture'
 gem 'haml'
 gem 'jbuilder', '~> 2.7'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.1.4.4', '>= 6.0.2.2'
 gem 'sass-rails', '>= 6'
 gem 'sorcery'
